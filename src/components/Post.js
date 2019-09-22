@@ -19,12 +19,10 @@ const Post = ({post,postedby,commentsInthisPost})=>{
 			{`${post.body}`}
 		</div>
 		<div className="postedBy">{`By: ${postedby.name}`}</div>
-		<div className="commentCount" onMouseOver={handleStatusChange} onClick={handleStatusChange}>
+		<div className="commentCount" onClick={handleStatusChange}>
 			{`${commentsInthisPost.length} comments`}
 		</div>
-		<div onMouseLeave={handleStatusChange}>
 		{commentStatus && <CommentsList comments={commentsInthisPost}/>}
-		</div>
 		</div>
 	)
 }

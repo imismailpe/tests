@@ -53,6 +53,9 @@ li{
 	padding: 3px;
 	background-color: Khaki;
 }
+.userBox p{
+	margin: 5px;
+}
 .postContainer{
 	display: grid;
 	grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
