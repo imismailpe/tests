@@ -20,10 +20,8 @@ code {
 	box-shadow: 0 4px 5px 0 hsl(0,0%,0%,0.4);
 }
 .navlinks{
-	display: flex;
-	justify-content: space-between;
+	display: inline-block;
 	list-style: none;
-	width: 60%;
 	margin: 2px;
 }
 .navlink{
@@ -33,6 +31,7 @@ code {
 li{
 	margin: 1px;
 	padding: 5px;
+	display: inline-block;
 	border: 1px solid white;
 }
 .resizecard{
