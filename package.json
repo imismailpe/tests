@@ -2,7 +2,7 @@
   "name": "tests",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://imismailpe.github.io/tests/",
+  "homepage": "https://github.com/imismailpe/tests/blob/master/build/index.html",
   "dependencies": {
     "react": "^16.8.6",
     "react-async": "^7.0.6",
