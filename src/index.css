@@ -27,6 +27,7 @@ code {
 .navlink{
 	color: white;
 	text-decoration-style: none;
+	padding: 5px;
 }
 li{
 	margin: 1px;
