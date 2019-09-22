@@ -23,6 +23,7 @@ code {
 	display: inline-block;
 	list-style: none;
 	margin: 2px;
+	padding: 5px;
 }
 .navlink{
 	color: white;
