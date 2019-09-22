@@ -2,6 +2,7 @@
   "name": "tests",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://github.com/imismailpe/tests.git",
   "dependencies": {
     "react": "^16.8.6",
     "react-async": "^7.0.6",
@@ -11,6 +12,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
