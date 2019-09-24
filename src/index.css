@@ -112,3 +112,16 @@ li{
 	background-color: white;
 	border: 1px solid grey;
 }
+.gridContainer{
+	display: inline-grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 3px;
+	margin: 5px;
+}
+.smallCard{
+	border: 1px solid brown;
+	border-radius: 3px;
+	background-color: ivory;
+	color: brown;
+	padding: 5px;
+}
