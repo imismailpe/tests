@@ -14,6 +14,10 @@ const Nav = ()=>{
 			<Link to="/posts">
 				<li className="navlink">Posts</li>
 			</Link>
+			<Link to="/DC">
+				<li className="navlink">DCs</li>
+			</Link>
+			
 		</ul>
 		)
 }
