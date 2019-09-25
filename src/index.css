@@ -114,14 +114,27 @@ li{
 }
 .gridContainer{
 	display: inline-grid;
-	grid-template-columns: auto auto auto;
+	grid-template-columns: repeat(4,auto);
 	grid-gap: 3px;
 	margin: 5px;
 }
 .smallCard{
+	position: relative;
 	border: 1px solid brown;
 	border-radius: 3px;
 	background-color: ivory;
 	color: brown;
-	padding: 5px;
+}
+.smallCardImg{
+	max-width: 100%;
+	height: auto;
+}
+.smallCardTitle{
+	position: absolute;
+	color: white;
+	font-weight: 600;
+	top: 70%;
+	left: 10%;
+	margin: 0;
+	text-shadow: 2px 2px black;
 }
