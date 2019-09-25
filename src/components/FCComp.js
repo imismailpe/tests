@@ -8,10 +8,13 @@ const FCComp = ({fclist})=>{
 		{
 			fclist.map(fc=>{
 				return(
-					<div key={fc.id} className="smallCard">
-					<Link to={`/fcid=${fc.id}`}>
-						<div>{`FC id:${fc.id}`}</div>
-						<div>{`FC Name:${fc.name}`}</div>
+					<div className="smallCard" key={`${fc.id}`}>
+					<Link to={`/FC/fcid=${fc.id}`}>
+					
+						<div><img className="smallCardImg" src={`${fc.img}${fc.name}`} alt="dc"/>
+							<h2 className="smallCardTitle">{`${fc.name}`}</h2>
+						</div>
+					
 					</Link>
 					</div>
 				)

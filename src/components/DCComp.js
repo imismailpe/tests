@@ -1,17 +1,20 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const DCComp = ({dclist})=>{
+const DCComp = ({dclist,dcClick})=>{
 	//console.log("dclist--",dclist);
 	return(
 		<div className="gridContainer">
 		{
 			dclist.map(dc=>{
 				return(
-					<div key={dc.id} className="smallCard">
-					<Link to={`/dcid=${dc.id}`}>
-						<div>{`DC id:${dc.id}`}</div>
-						<div>{`DC Name:${dc.name}`}</div>
+					<div className="smallCard" onClick={dcClick} key={`${dc.id}`}>
+					<Link to={`/DC/dcid=${dc.id}`}>
+					
+						<div><img className="smallCardImg" src={`${dc.img}${dc.name}`} alt="dc"/>
+							<h2 className="smallCardTitle">{`${dc.name}`}</h2>
+						</div>
+					
 					</Link>
 					</div>
 				)

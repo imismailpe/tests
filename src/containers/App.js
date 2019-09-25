@@ -1,17 +1,29 @@
 import React,{lazy,Suspense} from 'react';
-import './App.css';
-import WindowResize from './components/WindowResize';
-import Nav from './components/Nav';
+import {connect} from 'react-redux';
+import WindowResize from '../components/WindowResize';
+import Nav from '../components/Nav';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
-import {DCList} from './DCList.js';
-import {FCList} from './FCList.js';
+import {DCList} from '../DCList.js';
+import {FCList} from '../FCList.js';
+import {setDC} from '../actions.js';
+import './App.css';
 //import Async from 'react-async';
-const Users = lazy(() => import('./components/Users'));
-const Posts = lazy(()=>import('./components/Posts'));
-const DCs = lazy(()=>import('./components/DCComp.js'));
-const FCs = lazy(()=>import('./components/FCComp.js'));
+const Users = lazy(() => import('../components/Users'));
+const Posts = lazy(()=>import('../components/Posts'));
+const DCs = lazy(()=>import('../components/DCComp.js'));
+const FCs = lazy(()=>import('../components/FCComp.js'));
 //const Dclist = lazy(()=>import('./DCs.js'));
 
+const mapStateToProps = state=>{
+  return {
+    selectedDC:state.selectedDC
+  }
+}
+const mapDispatchToProps = (dispatch)=>{
+  return {
+    onDCClick: (event)=> dispatch(setDC(event.target.value))
+  }
+}
 
 class App extends React.Component{
   constructor(props){
@@ -29,6 +41,7 @@ class App extends React.Component{
   componentDidMount(){
     window.addEventListener("resize",this.updateSize);
     this.getData();
+    //console.log(this.props.store.getState());
   }
 
   updateSize=(e)=>{
@@ -62,12 +75,14 @@ class App extends React.Component{
         }
       })
     })().catch(e=>alert(e));
-    console.log("dclist--",this.state.dclist);
+    //console.log("fclist--",this.state.fclist);
   }
   componentWillUnmount(){
     window.removeEventListener("resize",this.updateSize(0,0));
   }
   render(){
+    const {selectedDC,onDCClick} = this.props;
+    console.log("this.state.selectedDC--",this.state.selectedDC);
   return (
     <div className="App">
     <Router>
@@ -98,11 +113,11 @@ class App extends React.Component{
       <Route exact path="/DC"
         render={()=>
           <Suspense fallback={'Loading...'}>
-            <DCs dclist={this.state.dclist}/>
+            <DCs dclist={this.state.dclist} dcClick={onDCClick}/>
           </Suspense>
         }
       />
-      <Route path="/dcid"
+      <Route path="/DC/dcid="
         render={()=>
           <Suspense fallback={'Loading...'}>
             <FCs fclist={this.state.fclist}/>
@@ -116,4 +131,4 @@ class App extends React.Component{
 }
 }
 
-export default App;
+export default connect(mapStateToProps,mapDispatchToProps)(App);

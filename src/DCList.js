@@ -1,14 +1,17 @@
 export const DCList = [
   {
     id: 1,
-    name: 'Bangalore'
+    name: 'Bangalore',
+    img: 'https://picsum.photos/200/150/?'
   },
   {
     id: 2,
-    name: 'Pune'
+    name: 'Pune',
+    img: 'https://picsum.photos/200/150/?'
   },
   {
     id: 3,
-    name: 'Mysore'
+    name: 'Mysore',
+    img: 'https://picsum.photos/200/150/?'
   }
   ];
