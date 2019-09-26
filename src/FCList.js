@@ -22,5 +22,5 @@ export const FCList = [
     name: 'Amoeba',
     dcid: 3,
     img: 'https://picsum.photos/200/150/?'
-  },
+  }
   ];

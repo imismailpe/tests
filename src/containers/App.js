@@ -118,7 +118,7 @@ class App extends React.Component{
           </Suspense>
         }
       />
-      <Route path="/DC/dcid"
+      <Route path="/DC/FC"
         render={()=>
           <Suspense fallback={'Loading...'}>
             <FCs fclist={this.state.fclist}/>

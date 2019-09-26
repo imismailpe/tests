@@ -9,7 +9,7 @@ const DCComp = ({dclist,dcClick})=>{
 			dclist.map(dc=>{
 				return(
 					<div className="smallCard" onClick={dcClick} key={`${dc.id}`}>
-					<Link to={`/DC/dcid=${dc.id}`}>
+					<Link to="/DC/FC">
 					<param name="dc" value={`${dc.id}`}/>
 						<div><img className="smallCardImg" src={`${dc.img}${dc.name}`} alt={`${dc.name}`}/>
 							<div className="smallCardTitle">{`${dc.name}`}</div>
