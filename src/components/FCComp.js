@@ -12,7 +12,7 @@ const FCComp = ({fclist})=>{
 					<Link to={`/FC/fcid=${fc.id}`}>
 					
 						<div><img className="smallCardImg" src={`${fc.img}${fc.name}`} alt="dc"/>
-							<h2 className="smallCardTitle">{`${fc.name}`}</h2>
+							<div className="smallCardTitle">{`${fc.name}`}</div>
 						</div>
 					
 					</Link>
