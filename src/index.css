@@ -113,28 +113,31 @@ li{
 	border: 1px solid grey;
 }
 .gridContainer{
-	display: inline-grid;
-	grid-template-columns: repeat(4,auto);
+	display: grid;
+	grid-template-columns: repeat(auto-fill,202px);
+	grid-template-rows: repeat(auto-fill,152px);
 	grid-gap: 3px;
 	margin: 5px;
+	justify-content: space-around;
 }
 .smallCard{
 	position: relative;
-	border: 1px solid brown;
+	border: 1px solid black;
 	border-radius: 3px;
 	background-color: ivory;
-	color: brown;
+	max-height: 150px;
+	max-width: 200px;
 }
 .smallCardImg{
 	max-width: 100%;
 	height: auto;
+	border-radius: 3px;
 }
 .smallCardTitle{
 	position: absolute;
 	color: white;
-	font-weight: 600;
-	top: 70%;
-	left: 10%;
-	margin: 0;
-	text-shadow: 2px 2px black;
+	font-size: 1.5rem;
+	bottom: 5px;
+	left: 5px;
+	text-shadow: 1px 1px black;
 }

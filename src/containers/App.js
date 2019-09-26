@@ -15,19 +15,20 @@ const FCs = lazy(()=>import('../components/FCComp.js'));
 //const Dclist = lazy(()=>import('./DCs.js'));
 
 const mapStateToProps = state=>{
+  console.log("state--",state);
   return {
     selectedDC:state.selectedDC
   }
 }
 const mapDispatchToProps = (dispatch)=>{
   return {
-    onDCClick: (event)=> dispatch(setDC(event.target.value))
+    onDCClick: (event)=> dispatch(setDC(event.target))
   }
 }
 
 class App extends React.Component{
-  constructor(props){
-    super(props);
+  constructor(){
+    super();
     this.state={
       wWidth:window.innerWidth,
       wHeight:window.innerHeight,
@@ -82,7 +83,7 @@ class App extends React.Component{
   }
   render(){
     const {selectedDC,onDCClick} = this.props;
-    console.log("this.state.selectedDC--",this.state.selectedDC);
+    console.log("this.state--",this.props);
   return (
     <div className="App">
     <Router>
@@ -117,7 +118,7 @@ class App extends React.Component{
           </Suspense>
         }
       />
-      <Route path="/DC/dcid="
+      <Route path="/DC/dcid"
         render={()=>
           <Suspense fallback={'Loading...'}>
             <FCs fclist={this.state.fclist}/>
