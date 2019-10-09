@@ -1,14 +1,19 @@
-import {SETDC} from './constants.js';
+import {SETDC,SETFC,SETVENDOR} from './constants.js';
 
 const initialState = {
-	selectedDC: ''
+	selectedDC: -1,
+	selectedFC: -1,
+	selectedVendor: -1
 }
 
-export const setDCR = (state=initialState, action={})=>{
-	console.log("action.type--",action.type);
+export const setDataR = (state=initialState, action={})=>{
 	switch(action.type){
 		case SETDC:
 			return Object.assign({},state,{selectedDC: action.payload})
+		case SETFC:
+			return Object.assign({},state,{selectedFC: action.payload})
+		case SETVENDOR:
+			return Object.assign({},state,{selectedVendor: action.payload})
 		default:
 			return state;
 	}

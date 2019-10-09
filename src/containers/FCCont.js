@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const FCComp = ({fclist})=>{
+const FCCont = ({fclist})=>{
 	//console.log("dclist--",dclist);
 	return(
 		<div className="gridContainer">
@@ -24,4 +24,4 @@ const FCComp = ({fclist})=>{
 	)
 }
 
-export default FCComp;
+export default FCCont;

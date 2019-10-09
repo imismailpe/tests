@@ -5,30 +5,28 @@ import Nav from '../components/Nav';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {DCList} from '../DCList.js';
 import {FCList} from '../FCList.js';
-import {setDC} from '../actions.js';
+import {VendorList} from '../VendorList.js';
 import './App.css';
 //import Async from 'react-async';
 const Users = lazy(() => import('../components/Users'));
 const Posts = lazy(()=>import('../components/Posts'));
-const DCs = lazy(()=>import('../components/DCComp.js'));
-const FCs = lazy(()=>import('../components/FCComp.js'));
+const DCs = lazy(()=>import('./DCListCont.js'));
+const FCs = lazy(()=>import('./FCListCont.js'));
+const Vendors = lazy(()=>import('./VendorListCont.js'));
 //const Dclist = lazy(()=>import('./DCs.js'));
 
-const mapStateToProps = state=>{
-  console.log("state--",state);
-  return {
-    selectedDC:state.selectedDC
-  }
-}
-const mapDispatchToProps = (dispatch)=>{
-  return {
-    onDCClick: (event)=> dispatch(setDC(event.target))
+const mapStateToProps = (state)=>{
+  return{
+      selectedDC: state.selectedDC,
+      selectedFC: state.selectedFC,
+      selectedVendor: state.selectedVendor
   }
 }
 
+
 class App extends React.Component{
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state={
       wWidth:window.innerWidth,
       wHeight:window.innerHeight,
@@ -36,13 +34,22 @@ class App extends React.Component{
       posts:[],
       comments:[],
       dclist:[],
-      fclist:[]
+      fclist:[],
+      vendorlist:[],
+      filteredFCs:[],
+      filteredVendors:[]
     }
+    this.filteredFCs=[];
+    this.filteredVendors=[];
   }
   componentDidMount(){
     window.addEventListener("resize",this.updateSize);
     this.getData();
-    //console.log(this.props.store.getState());
+  }
+  componentDidUpdate(prevProps){
+    if(prevProps!==this.props){
+      this.filterData();
+    }
   }
 
   updateSize=(e)=>{
@@ -57,7 +64,7 @@ class App extends React.Component{
       this.setState(function(){
         return {users:userlist}  
       })
-    })().catch(e=>alert(e));
+    }).catch(e=>alert(e));
   }
   getData = ()=>{
     (async ()=>{
@@ -70,20 +77,32 @@ class App extends React.Component{
       let userPosts = await resp[1].json();
       let commentList = await resp[2].json();
       this.setState(function(){
-        return {users:userList,posts:userPosts,comments:commentList,
+        return {
+          users:userList,
+          posts:userPosts,
+          comments:commentList,
           dclist:DCList,
-          fclist:FCList
+          fclist:FCList,
+          vendorlist: VendorList
         }
       })
-    })().catch(e=>alert(e));
-    //console.log("fclist--",this.state.fclist);
+    })();
+  }
+
+  filterData = ()=>{
+    this.filteredFCs=this.state.fclist.filter(fc=>fc.dcid===this.props.selectedDC)
+    this.filteredVendors=this.state.vendorlist.filter(vendor=>vendor.fcid===this.props.selectedFC)
+    this.setState(function(){
+      return {
+        filteredFCs:this.filteredFCs,
+        filteredVendors: this.filteredVendors
+        }
+    })
   }
   componentWillUnmount(){
     window.removeEventListener("resize",this.updateSize(0,0));
   }
   render(){
-    const {selectedDC,onDCClick} = this.props;
-    console.log("this.state--",this.props);
   return (
     <div className="App">
     <Router>
@@ -98,7 +117,7 @@ class App extends React.Component{
         }
       />
       <Route path="/users" 
-        render={() => 
+        render={() =>
           <Suspense fallback={'Loading...'}>
             <Users userlist={this.state.users} isAuthed={true} />
           </Suspense>
@@ -114,14 +133,21 @@ class App extends React.Component{
       <Route exact path="/DC"
         render={()=>
           <Suspense fallback={'Loading...'}>
-            <DCs dclist={this.state.dclist} dcClick={onDCClick}/>
+            <DCs dclist={this.state.dclist}/>
           </Suspense>
         }
       />
-      <Route path="/DC/FC"
+      <Route exact path="/DC/FC"
         render={()=>
           <Suspense fallback={'Loading...'}>
-            <FCs fclist={this.state.fclist}/>
+            <FCs fclist={this.state.filteredFCs}/>
+          </Suspense>
+        }
+      />
+      <Route exact path="/DC/FC/Vendor"
+        render={()=>
+          <Suspense fallback={'Loading...'}>
+            <Vendors vendorlist={this.state.filteredVendors}/>
           </Suspense>
         }
       />
@@ -132,4 +158,4 @@ class App extends React.Component{
 }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
