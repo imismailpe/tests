@@ -1,22 +1,26 @@
-export const DCList = [
+export const VendorList = [
   {
     id: 0,
-    name: 'Bangalore',
+    name: 'Hatti Kappi',
+    fcid: 0,
     img: 'https://picsum.photos/200/150/?'
   },
   {
     id: 1,
-    name: 'Pune',
+    name: 'Sub Way',
+    fcid: 0,
     img: 'https://picsum.photos/200/150/?'
   },
   {
     id: 2,
-    name: 'Mysore',
+    name: 'Chocolate',
+    fcid: 0,
     img: 'https://picsum.photos/200/150/?'
   },
   {
     id: 3,
-    name: 'Trivandrum',
+    name: 'Thalassery',
+    fcid: 1,
     img: 'https://picsum.photos/200/150/?'
-  }
+  },
   ];

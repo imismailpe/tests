@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const FCComp = ({fclist})=>{
+const FCCont = ({fclist})=>{
 	//console.log("dclist--",dclist);
 	return(
 		<div className="gridContainer">
@@ -9,7 +9,7 @@ const FCComp = ({fclist})=>{
 			fclist.map(fc=>{
 				return(
 					<div className="smallCard" key={`${fc.id}`}>
-					<Link to={`/FC/fcid=${fc.id}`}>
+					<Link to="/DC/FC/Vendor">
 					
 						<div><img className="smallCardImg" src={`${fc.img}${fc.name}`} alt="dc"/>
 							<div className="smallCardTitle">{`${fc.name}`}</div>
@@ -24,4 +24,4 @@ const FCComp = ({fclist})=>{
 	)
 }
 
-export default FCComp;
+export default FCCont;
