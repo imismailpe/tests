@@ -20,7 +20,8 @@ export const FoodList = [
     price: 15,
     rating: 4.2
   },
-  id: 4,
+  {
+    id: 4,
     name: 'Veg Meals',
     vendorid: 3,
     price: 50,
@@ -29,7 +30,7 @@ export const FoodList = [
   {
     id: 5,
     name: 'Non Veg Combo',
-    vendorid: 4,
+    vendorid: 0,
     price: 75,
     rating: 3.7
   },
