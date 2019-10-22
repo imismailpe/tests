@@ -18,7 +18,7 @@ class FoodListCont extends Component{
 						<FoodComp key={`${food.id}`} food={this.props.foodlist[i]} />
 				)
 			})
-			: <div>🛈 Nothing available as of now. Please visit other FCs</div>
+			: <div>ⓘ Nothing available as of now. Please visit other FCs</div>
 		}
 		</div>
 	)

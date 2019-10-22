@@ -35,7 +35,7 @@ class VendorListCont extends Component{
 					</Link>
 				)
 			})
-			: <div>🛈 No vendors are open at this FC now. Please visit other FCs</div>
+			: <div>ⓘ No vendors are open at this FC now. Please visit other FCs</div>
 		}
 		</div>
 	)
