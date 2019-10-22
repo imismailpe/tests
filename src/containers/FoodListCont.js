@@ -8,7 +8,7 @@ class FoodListCont extends Component{
 		super(props)
 	}
 	render(){
-		console.log("foodcont props--",this.props);
+		//console.log("foodcont props--",this.props);
 	return(
 		<div className="gridContainer">
 		{	

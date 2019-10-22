@@ -16,10 +16,12 @@ const mapDispatchToProps = (dispatch)=>{
   }
 }
 
-
 class DCListCont extends Component{
 	constructor(props){
 		super(props)
+	}
+	componentDidMount(){
+		//console.log("match params--",props.match.params)
 	}
 	render(){
 	return(

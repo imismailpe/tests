@@ -27,7 +27,7 @@ class FCListCont extends Component{
 		{	
 			this.props.fclist.map((fc,i)=>{
 				return(
-					<Link to={`/FC/${fc.id}/Vendor`} key={`${fc.id}`} onClick={()=>{this.props.selectFC(fc.id)}}>
+					<Link to={`/DC/:dcid/FC/${fc.id}/Vendor`} key={`${fc.id}`} onClick={()=>{this.props.selectFC(fc.id)}}>
 						<FCComp fc={this.props.fclist[i]} />
 					</Link>
 				)
