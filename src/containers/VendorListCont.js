@@ -6,7 +6,9 @@ import VendorComp from '../components/VendorComp';
 
 const mapStateToProps = (state)=>{
   return{
-  	selectedVendor: state.selectedVendor
+  	selectedVendor: state.selectedVendor,
+  	selectedDC: state.selectedDC,
+    selectedFC: state.selectedFC
   }
 }
 
@@ -28,7 +30,7 @@ class VendorListCont extends Component{
 		{	
 			this.props.vendorlist.map((vendor,i)=>{
 				return(
-					<Link to={`/DC/:dcid/FC/:fcid/Vendor/${vendor.id}/Food`} key={`${vendor.id}`} onClick={()=>{this.props.selectVendor(vendor.id)}}>
+					<Link to={`/DC/${this.props.selectedDC}/FC/${this.props.selectedFC}/Vendor/${vendor.id}/Food`} key={`${vendor.id}`} onClick={()=>{this.props.selectVendor(vendor.id)}}>
 						<VendorComp vendor={this.props.vendorlist[i]} />
 					</Link>
 				)

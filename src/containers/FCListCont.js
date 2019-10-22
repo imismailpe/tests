@@ -6,7 +6,8 @@ import FCComp from '../components/FCComp';
 
 const mapStateToProps = (state)=>{
   return{
-      selectedFC: state.selectedFC
+      selectedFC: state.selectedFC,
+      selectedDC: state.selectedDC
   }
 }
 
@@ -27,7 +28,7 @@ class FCListCont extends Component{
 		{	
 			this.props.fclist.map((fc,i)=>{
 				return(
-					<Link to={`/DC/:dcid/FC/${fc.id}/Vendor`} key={`${fc.id}`} onClick={()=>{this.props.selectFC(fc.id)}}>
+					<Link to={`/DC/${this.props.selectedDC}/FC/${fc.id}/Vendor`} key={`${fc.id}`} onClick={()=>{this.props.selectFC(fc.id)}}>
 						<FCComp fc={this.props.fclist[i]} />
 					</Link>
 				)
