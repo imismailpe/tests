@@ -22,13 +22,13 @@ class VendorListCont extends Component{
 		super(props)
 	}
 	render(){
-		//console.log("vendorcont props--",this.props);
+		console.log("vendorcont props--",this.props.match);
 	return(
 		<div className="gridContainer">
 		{	
 			this.props.vendorlist.map((vendor,i)=>{
 				return(
-					<Link to={`/Vendor/${vendor.id}/Food`} key={`${vendor.id}`} onClick={()=>{this.props.selectVendor(vendor.id)}}>
+					<Link to={`/DC/:dcid/FC/:fcid/Vendor/${vendor.id}/Food`} key={`${vendor.id}`} onClick={()=>{this.props.selectVendor(vendor.id)}}>
 						<VendorComp vendor={this.props.vendorlist[i]} />
 					</Link>
 				)

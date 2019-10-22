@@ -106,7 +106,7 @@ class App extends React.Component{
         filteredFoods: this.filteredFoods
         }
     })
-    console.log("state after filter--",this.state)
+    //console.log("state after filter--",this.state)
   }
   componentWillUnmount(){
     window.removeEventListener("resize",this.updateSize(0,0));
@@ -153,14 +153,14 @@ class App extends React.Component{
           </Suspense>
         }
       />
-      <Route exact path="/FC/:fcid/Vendor"
+      <Route exact path="/DC/:dcid/FC/:fcid/Vendor"
         render={()=>
           <Suspense fallback={'Loading...'}>
             <Vendors vendorlist={this.state.filteredVendors}/>
           </Suspense>
         }
       />
-      <Route exact path="/Vendor/:vendorid/Food"
+      <Route exact path="/DC/:dcid/FC/:fcid/Vendor/:vendorid/Food"
         render={()=>
           <Suspense fallback={'Loading...'}>
             <Foods foodlist={this.state.filteredFoods}/>
