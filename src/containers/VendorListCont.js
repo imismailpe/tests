@@ -2,11 +2,11 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {setaVendor} from '../actions.js';
 import {Link} from 'react-router-dom';
-import VendorComp from './VendorComp';
+import VendorComp from '../components/VendorComp';
 
 const mapStateToProps = (state)=>{
   return{
-      selectedVendor: state.selectedVendor
+  	selectedVendor: state.selectedVendor
   }
 }
 
@@ -22,13 +22,13 @@ class VendorListCont extends Component{
 		super(props)
 	}
 	render(){
-		console.log("vendorcont props--",this.props);
+		//console.log("vendorcont props--",this.props);
 	return(
 		<div className="gridContainer">
 		{	
 			this.props.vendorlist.map((vendor,i)=>{
 				return(
-					<Link to="/DC/FC/Vendor/Food" key={`${vendor.id}`} onClick={()=>{this.props.selectVendor(vendor.id)}}>
+					<Link to={`/Vendor/${vendor.id}/Food`} key={`${vendor.id}`} onClick={()=>{this.props.selectVendor(vendor.id)}}>
 						<VendorComp vendor={this.props.vendorlist[i]} />
 					</Link>
 				)
