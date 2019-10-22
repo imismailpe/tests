@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {setaDC} from '../actions.js';
 import {Link} from 'react-router-dom';
-import DCComp from './DCComp';
+import DCComp from '../components/DCComp';
 
 const mapStateToProps = (state)=>{
   return{
@@ -27,7 +27,7 @@ class DCListCont extends Component{
 		{	
 			this.props.dclist.map((dc,i)=>{
 				return(
-					<Link to="/DC/FC" key={`${dc.id}`} onClick={()=>{this.props.selectDC(dc.id)}}>
+					<Link to={`/DC/${dc.id}/FC`} key={`${dc.id}`} onClick={()=>{this.props.selectDC(dc.id)}}>
 						<DCComp dc={this.props.dclist[i]} />
 					</Link>
 				)

@@ -7,6 +7,8 @@ const initialState = {
 }
 
 export const setDataR = (state=initialState, action={})=>{
+	console.log("action--",action.type)
+	console.log("payload--",action.payload)
 	switch(action.type){
 		case SETDC:
 			return Object.assign({},state,{selectedDC: action.payload})

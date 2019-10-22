@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {setaFC} from '../actions.js';
 import {Link} from 'react-router-dom';
-import FCComp from './FCComp';
+import FCComp from '../components/FCComp';
 
 const mapStateToProps = (state)=>{
   return{
@@ -27,7 +27,7 @@ class FCListCont extends Component{
 		{	
 			this.props.fclist.map((fc,i)=>{
 				return(
-					<Link to="/DC/FC/Vendor" key={`${fc.id}`} onClick={()=>{this.props.selectFC(fc.id)}}>
+					<Link to={`/FC/${fc.id}/Vendor`} key={`${fc.id}`} onClick={()=>{this.props.selectFC(fc.id)}}>
 						<FCComp fc={this.props.fclist[i]} />
 					</Link>
 				)
