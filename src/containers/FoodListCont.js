@@ -12,11 +12,13 @@ class FoodListCont extends Component{
 	return(
 		<div className="gridContainer">
 		{	
+			this.props.foodlist.length>0?
 			this.props.foodlist.map((food,i)=>{
 				return(
 						<FoodComp key={`${food.id}`} food={this.props.foodlist[i]} />
 				)
 			})
+			: <div>🛈 Nothing available as of now. Please visit other FCs</div>
 		}
 		</div>
 	)

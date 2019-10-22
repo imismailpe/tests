@@ -27,7 +27,7 @@ class VendorListCont extends Component{
 		console.log("vendorcont props--",this.props.match);
 	return(
 		<div className="gridContainer">
-		{	
+		{	this.props.vendorlist.length>0?
 			this.props.vendorlist.map((vendor,i)=>{
 				return(
 					<Link to={`/DC/${this.props.selectedDC}/FC/${this.props.selectedFC}/Vendor/${vendor.id}/Food`} key={`${vendor.id}`} onClick={()=>{this.props.selectVendor(vendor.id)}}>
@@ -35,6 +35,7 @@ class VendorListCont extends Component{
 					</Link>
 				)
 			})
+			: <div>🛈 No vendors are open at this FC now. Please visit other FCs</div>
 		}
 		</div>
 	)
