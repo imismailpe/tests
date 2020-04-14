@@ -7,6 +7,7 @@ import {DCList} from '../DCList.js';
 import {FCList} from '../FCList.js';
 import {VendorList} from '../VendorList.js';
 import {FoodList} from '../FoodList.js';
+import {CovidStats} from '../CovidStats.js';
 import './App.css';
 //import Async from 'react-async';
 const Users = lazy(() => import('../components/Users'));
@@ -139,6 +140,13 @@ class App extends React.Component{
           </Suspense>
         }
       />
+      <Route exact path="/Covid"
+              render={()=>
+                <Suspense fallback={'Loading...'}>
+                  <CovidStats />
+                </Suspense>
+              }
+            />
       <Route exact path="/DC"
         render={()=>
           <Suspense fallback={'Loading...'}>
